@@ -115,7 +115,7 @@ function love.draw()
 end
 
 function displayFPS()
-    love.graphics.setFont(small)
+    love.graphics.setFont(gFonts['small'])
     love.graphics.setColor(0, 1, 0, 1)
-    love.graphics.printf('FPS: ' .. tostring(love.timer.getFPS()), 5, 5) --Posiçao em x e y
+    love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 5, 5) --Posiçao em x e y
 end
