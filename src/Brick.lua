@@ -15,8 +15,28 @@ end
 
 --Metodo de colisao
 function Brick:hit()
+    gSounds['brick_hit_2']:stop()
     gSounds['brick_hit_2']:play()
-    self.inPlay = false
+
+    if self.tier > 0 then
+        if self.color == 0 then
+            self.tier = self.tier - 1
+            self.color = 5
+        else
+            self.color = self.color - 1
+        end
+    else
+        if self.color == 1 then
+            self.inPlay = false
+        else
+            self.color = self.color - 1
+        end
+    end
+
+    if not self.inPlay then
+        gSounds['brick_hit_1']:stop()
+        gSounds['brick_hit_1']:play()
+    end
 end
 
 function Brick:render()
