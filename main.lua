@@ -36,6 +36,10 @@ function love.load()
         fullscreen = false
     })
 
+    --lista de texturas do paddle
+    gFrames = {
+        ['paddles'] = GenerateQuadsPaddles(gTextures['main'])
+    }
 
     --lista de sons
     gSounds = {
@@ -58,9 +62,10 @@ function love.load()
 
         }
 
-    --Iniciar a minha maquina de estados
+    --Defenir a minha maquina de estados
     gStateMachine = StateMachine{
-        ['start'] = function() return StartState() end
+        ['start'] = function() return StartState() end,
+        ['play'] = function() return PlayState() end
     }
 
     gStateMachine:change('start')
@@ -117,5 +122,5 @@ end
 function displayFPS()
     love.graphics.setFont(gFonts['small'])
     love.graphics.setColor(0, 1, 0, 1)
-    love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 5, 5) --Posiçao em x e y
+    love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 5, VIRTUAL_HEIGHT - 15) --Posiçao em x e y
 end
