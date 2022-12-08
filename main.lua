@@ -38,7 +38,8 @@ function love.load()
 
     --lista de texturas do paddle
     gFrames = {
-        ['paddles'] = GenerateQuadsPaddles(gTextures['main'])
+        ['paddles'] = GenerateQuadsPaddles(gTextures['main']),
+        ['balls'] = GenerateQuadsBalls(gTextures['main'])
     }
 
     --lista de sons
