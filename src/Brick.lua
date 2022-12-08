@@ -15,7 +15,7 @@ end
 
 --Metodo de colisao
 function Brick:hit()
-    gSounds['brick_hit_1']:play()
+    gSounds['brick_hit_2']:play()
     self.inPlay = false
 end
 
