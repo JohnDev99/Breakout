@@ -1,6 +1,6 @@
 Paddle = Class{}
 
-function Paddle:init()
+function Paddle:init(skin)
     self.x = VIRTUAL_WIDTH / 2 - 32
     self.y = VIRTUAL_HEIGHT - 32
     --movimento em x
@@ -9,7 +9,7 @@ function Paddle:init()
     self.width = 64
     self.height = 16
     --Possiblidede de mudar de textura
-    self.skin = 1
+    self.skin = skin
     --Tamanho do paddle inicial, havendo outros tres de diferentes dimensoes
     self.size = 2
 end
@@ -33,6 +33,5 @@ end
 
 function Paddle:render()
     --Desenhar paddle
-    love.graphics.draw(gTextures['main'], 
-    gFrames['paddles'][self.size + 4 * (self.skin - 1)], self.x, self.y)
+    love.graphics.draw(gTextures['main'], gFrames['paddles'][self.size + 4 * (self.skin - 1)], self.x, self.y)
 end

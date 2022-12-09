@@ -34,6 +34,10 @@ function table.slice(tbl, first, last, step)
     return sliced
 end
 
+function GenerateQuadsBricks(atlas)
+    return table.slice(GenerateQuads(atlas, 32, 16), 1, 21)
+end
+
 --Como os paddles sao de tamanhos diferentes, é necessario defenir as sua dimenssoes manualmente
 function GenerateQuadsPaddles(atlas)
     local x = 0
@@ -88,8 +92,4 @@ function GenerateQuadsBalls(atlas)
     end
 
     return quads
-end
-
-function GenerateQuadsBricks(atlas)
-    return table.slice(GenerateQuads(atlas, 32, 16), 1, 21)
 end

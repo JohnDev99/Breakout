@@ -64,7 +64,7 @@ function LevelMaker.createMap(level)
             )
 
             --Se estiver-mos a alternar , decidir qual as 2 cores a alternar
-            if alternateFlag and alternatePattern then
+            if alternatePattern and alternateFlag then
                 b.color = alternateColor1
                 b.tier = alternateTier1
                 alternateFlag = not alternateFlag

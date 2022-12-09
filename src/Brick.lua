@@ -3,23 +3,33 @@ Brick = Class{}
 paletteColors = {
     --azul
     [1] = {
-        ['r'] = 99,['g'] = 155,['b'] = 255
+        ['r'] = 99,
+        ['g'] = 155,
+        ['b'] = 255
     },
     --verde
     [2] = {
-        ['r'] = 106,['g'] = 190,['b'] = 47
+        ['r'] = 106,
+        ['g'] = 190,
+        ['b'] = 47
     },
     --vermelho
     [3] = {
-        ['r'] = 217,['g'] = 87,['b'] = 99
+        ['r'] = 217,
+        ['g'] = 87,
+        ['b'] = 99
     },
     --purpura
     [4] = {
-        ['r'] = 215,['g'] = 123,['b'] = 186
+        ['r'] = 215,
+        ['g'] = 123,
+        ['b'] = 186
     },
     --dourado
     [5] = {
-        ['r'] = 251,['g'] = 242,['b'] = 54
+        ['r'] = 251,
+        ['g'] = 242,
+        ['b'] = 54
     }
 }
 
@@ -62,7 +72,7 @@ function Brick:hit()
     gSounds['brick_hit_2']:play()
 
     if self.tier > 0 then
-        if self.color == 0 then
+        if self.color == 1 then
             self.tier = self.tier - 1
             self.color = 5
         else

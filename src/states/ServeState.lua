@@ -5,6 +5,9 @@ function ServeState:enter(params)
     self.bricks = params.bricks
     self.health = params.health
     self.score = params.score
+    self.level = params.level
+    self.highscores = params.highscores
+    self.recoverpoints = params.recoverpoints
 
     --Bola vai iniciar com uma skin aleatoria
     self.ball = Ball()
@@ -22,7 +25,10 @@ function ServeState:update(dt)
             ball = self.ball,
             health = self.health,
             bricks = self.bricks,
-            score = self.score
+            score = self.score,
+            level = self.level,
+            highscores = self.highscores,
+            recoverpoints = self.recoverpoints
         })
     end
 
@@ -41,6 +47,10 @@ function ServeState:render()
 
     renderScore(self.score)
     renderHealth(self.health)
+
+
+    love.graphics.setFont(gFonts['large'])
+    love.graphics.printf('Level ' .. tostring(self.level), 0, VIRTUAL_HEIGHT / 3, VIRTUAL_WIDTH, 'center')
 
     love.graphics.setFont(gFonts['medium'])
     love.graphics.printf('Press Enter to Serve', 0, VIRTUAL_HEIGHT / 2, VIRTUAL_WIDTH, 'center')

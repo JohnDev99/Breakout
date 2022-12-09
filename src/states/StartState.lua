@@ -2,6 +2,10 @@ StartState = Class{__includes = BaseState}
 
 local highlited = 1
 
+function StartState:enter(params)
+    self.highscores = params.highscores
+end
+
 function StartState:update(dt)
     if love.keyboard.wasPressed('up') or love.keyboard.wasPressed('down') then
         highlited = highlited == 1 and 2 or 1
@@ -13,15 +17,14 @@ function StartState:update(dt)
         gSounds['confirm']:play()
 
         if highlited == 1 then
-            gStateMachine:change('serve', {
-                paddle = Paddle(1),
-                bricks = LevelMaker.createMap(1),
-                health = 3,
-                score = 0
+            gStateMachine:change('paddleselect', {
+                highscores = self.highscores
+            })
+        else
+            gStateMachine:change('highscores', {
+                highscores = self.highscores
             })
         end
-
-        --eslse muda para o estado de melhores resultados
     end
 
     --encerra aplicaçao
